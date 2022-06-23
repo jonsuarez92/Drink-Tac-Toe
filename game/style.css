@@ -1,0 +1,79 @@
+body {
+  /* background-color: teal; */
+  background-image: url(https://ksr-ugc.imgix.net/assets/012/248/850/e73e5e4b4ba0d0066a191423cd190475_original.png?ixlib=rb-4.0.2&crop=faces&w=1552&h=873&fit=crop&v=1463746322&auto=format&frame=1&q=92&s=a102b8db1198398993f69c6db9a65b1b);
+  background-size: cover;
+  width: 100%;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 200px 200px 200px;
+
+  grid-template-areas:
+    "header header header"
+    "log game game"
+    "log game game"
+    "log game game";
+}
+.child {
+  /* border: solid; */
+}
+.head {
+  grid-area: header;
+}
+.log {
+  grid-area: log;
+}
+.game {
+  grid-area: game;
+}
+h2 {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+
+#board {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 300px;
+}
+
+.tile {
+  background-color: rgb(228, 167, 35);
+
+  border: 1px solid rgb(244, 244, 248);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+#buttons {
+  text-align: center;
+  margin: 30px;
+}
+
+#score {
+  text-align: center;
+  margin-top: 2px;
+}
+h3 {
+  text-align: center;
+}
+
+#text-wrap {
+  background-color: whitesmoke;
+  opacity: 0.7;
+  text-align: center;
+  font-weight: bolder;
+  font-size: x-large;
+  color: rgb(5, 163, 163);
+}

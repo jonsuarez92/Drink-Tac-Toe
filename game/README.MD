@@ -1,0 +1,2 @@
+The game is a simple Tic-Tac-Toe game with a lil twist.
+Its a two player game with X being playerX and O being PlayerO. when any of the players win the loser have to drink. If there is a tie both player have to drink. when winner is found you just press drink button  for you charater to drink then play again and keep playin until you dont want to anymore.
