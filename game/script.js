@@ -1,3 +1,57 @@
+//const drink = () =>{
+   // if(playerX.lose === true){
+  //  console.log('playerX has to take shot!')
+ //}
+    //if(playerO.lose === true){
+     //   console.log('playerO has to take a shot!')
+   // }
+   // }
+
+// const reset = () =>{
+//     if(playerX.lose || playerO.lose === true ){
+//         window.alert('Play again best out of Five!')
+//     }
+   
+// }
+
+/*
+//class for myplayers
+
+class Myplayers {
+    constructor(name,letter,){
+        this.name = name;
+        this.letter = letter,
+        this.lose = false;
+        this.reset = false;
+        this.win = false;
+    }
+drink(){
+    if(playerX.lose === true){
+        return drink
+} if(playerO.lose === true){
+    return drink
+
+}
+
+}
+
+}
+
+const playerX = new Myplayers('PlayerX', 'x')
+console.log(playerX);
+
+const playerO = new Myplayers('PlayerO', 'o')
+console.log(playerO);
+
+*/
+
+
+// function resetGame(){
+//  boardStatus = Array(tiles.length);
+//  boardStatus.fill(null)
+// }
+
+
 //dom text for game 
 
 const paragraph = document.querySelector("#p1")
@@ -38,8 +92,11 @@ const start = () =>{
 
 }
 
+//fix the variables and i and take out win
+
 const score = () =>{
-    if(playerX.win === true ){
+
+    if(playero.win === true ){
         for(let xWins = 0; xWins < 3; xWins++){
             console.log('playerX has won');
         }if(playerO.win === true){
@@ -49,55 +106,15 @@ const score = () =>{
         }
     }
 }
-
-
-
-//const drink = () =>{
-   // if(playerX.lose === true){
-  //  console.log('playerX has to take shot!')
- //}
-    //if(playerO.lose === true){
-     //   console.log('playerO has to take a shot!')
-   // }
-   // }
-
-const reset = () =>{
-    if(playerX.lose || playerO.lose === true ){
-        window.alert('Play again best out of Five!')
-    }
-   
-}
-
-//class for myplayers
-
-class Myplayers {
-    constructor(name,letter,){
-        this.name = name;
-        this.letter = letter,
-        this.lose = false;
-        this.reset = false;
-        this.win = false;
-    }
-drink(){
-    if(playerX.lose === true){
-        return drink
-} if(playerO.lose === true){
-    return drink
-
-}
-
-}
-
-}
-
-const playerX = new Myplayers('PlayerX', 'x')
-console.log(playerX);
-
-const playerO = new Myplayers('PlayerO', 'o')
-console.log(playerO);
-
-
-
+ 
+//things to fix
+/* 
+1. fix score board to work the loop is wrong.
+2.if board is full and there a winner dont say draw
+3.if board is full with no winner fix that both players 
+drink and not just player o 
+4. dont let players be able to click the board without 
+hitting start button*/
 
 // The game
 const tiles = (document.querySelectorAll('.tile'));
@@ -167,7 +184,7 @@ function checkWinner(){
                //  console.log(tile1); }
             }
     }
-   // Draw
+   // Draw i have to fix within my drink function
    const draw = boardStatus.every((tile) => tile !== null);
    if(draw){
        console.log('draw, Both player take a shot!');
@@ -214,15 +231,6 @@ playBtn.addEventListener('click', (evt) => {
  window.location.reload()
 })
  
-
-function resetGame(){
- boardStatus = Array(tiles.length);
- boardStatus.fill(null)
-}
-
-
-
-
 
 const winningConditions = [
     {plays:[0, 1, 2]},
