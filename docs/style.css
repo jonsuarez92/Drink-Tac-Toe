@@ -17,9 +17,9 @@ body {
     "log game game"
     "log game game";
 }
-.child {
-  /* border: solid; */
-}
+/* .child {
+   border: solid; 
+} */
 .head {
   grid-area: header;
 }
