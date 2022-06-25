@@ -1,5 +1,6 @@
 let scoreX = 0;
 let scoreO = 0;
+let isDraw = false;
 
 //dom text for game 
 
@@ -64,8 +65,8 @@ const score = () =>{
  
 //things to fix
 /* 
-1. fix score board to work the loop is wrong.
-2.if board is full and there a winner dont say draw
+
+
 3.if board is full with no winner fix that both players 
 drink and not just player o 
 */
@@ -119,7 +120,11 @@ function checkWinner(){
     }
    // Draw i have to fix within my drink function
    const draw = boardStatus.every((tile) => tile !== null);
+ 
    if(draw){
+    isDraw = true;
+    boardStatus.fill(null)
+    isGameActive = false; 
        console.log('draw, Both player take a shot!');
        paragraph3.textContent = 'Draw! Both players drink!'
    }
@@ -170,6 +175,7 @@ function endGame(){
         scoreX++
         xScore.textContent = scoreX;
         boardStatus.fill(null)
+        isGameActive = false;
         console.log('x wins, player o takes a shot!')
         paragraph2.textContent = 'X wins! player O has to take shot!'}
         
@@ -177,6 +183,7 @@ if (turn === playero){
     scoreO++
     oScore.textContent = scoreO
     boardStatus.fill(null)
+    isGameActive = false;
     console.log('o wins, player x takes a shot!')
     paragraph2.textContent = 'O wins! player X has to take shot!'
 } 
@@ -194,14 +201,16 @@ DrinkBtn.addEventListener('click', (evt) => {
  
 const drink = () =>{
     
-    if(turn === playerx){
+    if (isDraw){
+        console.log('it was a draw')
+        paragraph3.textContent = 'Player O and Player X feeling tipsy'
+        isDraw = false;
+        
+    }else if(turn === playerx){
 paragraph3.textContent = 'Player X feeling tipsy'
     }
-    if (turn === playero){
+    else if (turn === playero){
         paragraph3.textContent = 'Player O feeling tipsy'
-    }
-     else if (!turn === playero ){
-        paragraph3.textContent = 'Player O and Player X feeling tipsy'
     }
 }
 
@@ -209,6 +218,7 @@ const playBtn = document.getElementById('play')
 
 playBtn.addEventListener('click', (evt) => {
 tiles.forEach((tile)=> tile.innerText = "")
+isGameActive = true;
 })
  
 
