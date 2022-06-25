@@ -72,25 +72,27 @@ const removeText = () => {
 
 //dom eventlisyners for buttons to be functional
 
-const startBtn = document.getElementById("start")
-
-startBtn.addEventListener('click', (evt) => {
-    start()
-})
 
 
 
 //functions for players in game
 
-const isGameActive = true;
+let isGameActive = false;
 
 const start = () =>{
+    isGameActive = true
     if(isGameActive === true){
         paragraph.textContent = 'Get ready to get wasted!'
     
 }
 
 }
+const startBtn = document.getElementById("start")
+
+startBtn.addEventListener('click', (evt) => {
+    start()
+})
+
 
 //fix the variables and i and take out win
 
@@ -132,39 +134,18 @@ const gameStatus = document.querySelector('game-status-text');
 const xWin = document.getElementById('x-score')
 const oWin = document.getElementById('o-score')
 
-
-
-// taking turns X and O
-
-tiles.forEach((tile) => tile.addEventListener("click", tileclick))
- function tileclick(j){
-    const tile = j.target;
-     const tileNumber = tile.dataset.index;
-     if(tile.innerText != ""){
-         return;
-     }
-     if( turn === playerx){
-         tile.innerText = playerx;
-         boardStatus[tileNumber - 1] = playerx;
-         
-     } 
-     else {
-        tile.innerText = playero;
-        boardStatus[tileNumber - 1] = playero;
-        
- }
-
- checkWinner();
- if(turn === playero ){
-    turn = playerx;
- }
- else {
-     turn = playero 
- }
-} 
-
-
-
+const winningConditions = [
+    {plays:[0, 1, 2]},
+    {plays:[3, 4, 5]},
+    {plays:[6, 7, 8]},
+    {plays:[0, 3, 6]},
+    {plays:[1, 4, 7]},
+    {plays:[2, 5, 8]},
+    {plays:[0, 4, 8]},
+    {plays:[2, 4, 6]},
+  ];
+  
+  
 function checkWinner(){
     console.log('placement')
     for(const winningCondition of winningConditions){
@@ -191,6 +172,47 @@ function checkWinner(){
        paragraph3.textContent = 'Draw! Both players drink!'
    }
 }
+
+// taking turns X and O
+
+tiles.forEach((tile) => tile.addEventListener("click", tileclick))
+function tileclick(j){
+    if(isGameActive){
+    const tile = j.target;
+     const tileNumber = tile.dataset.index;
+     if(tile.innerText != ""){
+         return;
+     }
+     if( turn === playerx){
+         
+         tile.innerText = playerx;
+         boardStatus[tileNumber - 1] = playerx;
+         
+     } 
+     else {
+        tile.innerText = playero;
+        boardStatus[tileNumber - 1] = playero;
+        
+        }
+        } else {
+        return
+    }
+
+
+
+
+ checkWinner();
+ if(turn === playero ){
+    turn = playerx;
+ }
+ else {
+     turn = playero 
+ }
+ 
+}
+
+
+
 function endGame(){
     if(turn === playerx){
         console.log('x wins, player o takes a shot!')
@@ -232,18 +254,7 @@ playBtn.addEventListener('click', (evt) => {
 })
  
 
-const winningConditions = [
-    {plays:[0, 1, 2]},
-    {plays:[3, 4, 5]},
-    {plays:[6, 7, 8]},
-    {plays:[0, 3, 6]},
-    {plays:[1, 4, 7]},
-    {plays:[2, 5, 8]},
-    {plays:[0, 4, 8]},
-    {plays:[2, 4, 6]},
-  ];
-  
-  
+
 
 
   
