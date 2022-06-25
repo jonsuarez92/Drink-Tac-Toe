@@ -6,6 +6,24 @@ body {
   height: 100vh;
 }
 
+@media screen and (min-width: 320px) and (orientation: landscape) {
+  .float-menu {
+    left: 0;
+    top: 50%;
+    position: fixed;
+    transform: translateY(-50%);
+  }
+  .float-nav {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .logo {
+    width: 7em;
+  }
+
+
 .parent {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
