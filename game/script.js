@@ -1,63 +1,16 @@
-//const drink = () =>{
-   // if(playerX.lose === true){
-  //  console.log('playerX has to take shot!')
- //}
-    //if(playerO.lose === true){
-     //   console.log('playerO has to take a shot!')
-   // }
-   // }
-
-// const reset = () =>{
-//     if(playerX.lose || playerO.lose === true ){
-//         window.alert('Play again best out of Five!')
-//     }
-   
-// }
-
-/*
-//class for myplayers
-
-class Myplayers {
-    constructor(name,letter,){
-        this.name = name;
-        this.letter = letter,
-        this.lose = false;
-        this.reset = false;
-        this.win = false;
-    }
-drink(){
-    if(playerX.lose === true){
-        return drink
-} if(playerO.lose === true){
-    return drink
-
-}
-
-}
-
-}
-
-const playerX = new Myplayers('PlayerX', 'x')
-console.log(playerX);
-
-const playerO = new Myplayers('PlayerO', 'o')
-console.log(playerO);
-
-*/
-
-
-// function resetGame(){
-//  boardStatus = Array(tiles.length);
-//  boardStatus.fill(null)
-// }
-
+let scoreX = 0;
+let scoreO = 0;
 
 //dom text for game 
 
 const paragraph = document.querySelector("#p1")
 const paragraph2 = document.querySelector("#p2")
 const paragraph3 = document.querySelector("#p3")
+const xScore = document.getElementById("x-score")
+const oScore = document.getElementById("o-score")
 
+xScore.textContent = scoreX;
+oScore.textContent = scoreO;
 
 //remove text function
 
@@ -115,8 +68,7 @@ const score = () =>{
 2.if board is full and there a winner dont say draw
 3.if board is full with no winner fix that both players 
 drink and not just player o 
-4. dont let players be able to click the board without 
-hitting start button*/
+*/
 
 // The game
 const tiles = (document.querySelectorAll('.tile'));
@@ -187,12 +139,12 @@ function tileclick(j){
          
          tile.innerText = playerx;
          boardStatus[tileNumber - 1] = playerx;
-         
+         console.log(boardStatus);
      } 
      else {
         tile.innerText = playero;
         boardStatus[tileNumber - 1] = playero;
-        
+        console.log(boardStatus);
         }
         } else {
         return
@@ -215,10 +167,16 @@ function tileclick(j){
 
 function endGame(){
     if(turn === playerx){
+        scoreX++
+        xScore.textContent = scoreX;
+        boardStatus.fill(null)
         console.log('x wins, player o takes a shot!')
         paragraph2.textContent = 'X wins! player O has to take shot!'}
         
 if (turn === playero){
+    scoreO++
+    oScore.textContent = scoreO
+    boardStatus.fill(null)
     console.log('o wins, player x takes a shot!')
     paragraph2.textContent = 'O wins! player X has to take shot!'
 } 
@@ -250,7 +208,7 @@ paragraph3.textContent = 'Player X feeling tipsy'
 const playBtn = document.getElementById('play')
 
 playBtn.addEventListener('click', (evt) => {
- window.location.reload()
+tiles.forEach((tile)=> tile.innerText = "")
 })
  
 
