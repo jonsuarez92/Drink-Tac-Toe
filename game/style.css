@@ -3,6 +3,7 @@ body {
   background-image: url(https://ksr-ugc.imgix.net/assets/012/248/850/e73e5e4b4ba0d0066a191423cd190475_original.png?ixlib=rb-4.0.2&crop=faces&w=1552&h=873&fit=crop&v=1463746322&auto=format&frame=1&q=92&s=a102b8db1198398993f69c6db9a65b1b);
   background-size: cover;
   width: 100%;
+  height: 100vh;
 }
 
 .parent {
@@ -17,7 +18,7 @@ body {
     "log game game";
 }
 .child {
-  border: solid;
+  /* border: solid; */
 }
 .head {
   grid-area: header;
